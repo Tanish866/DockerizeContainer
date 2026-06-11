@@ -1,11 +1,13 @@
 FROM node
 
-WORKDIR /my-server
+WORKDIR /Basic_node_server/my-server/DockerizeContainer
 
-RUN apt-get update && apt-get install -y
+RUN apt-get update && apt-get install -y git
 
-RUN git clone git@github.com:Tanish866/DockerizeContainer.git
+RUN git clone https://github.com/Tanish866/DockerizeContainer.git .
 
 RUN npm ci
 
-CMD ["node", "index.js"].
+ENV PORT=3000
+
+CMD ["node", "index.js"]
